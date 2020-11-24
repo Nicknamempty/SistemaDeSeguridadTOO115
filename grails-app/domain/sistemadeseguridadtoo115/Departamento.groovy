@@ -10,4 +10,8 @@ class Departamento {
         nombreD  unique: true,size:3..100
         municipio nulleable: true
     }
+
+    static mapping = {
+        version false
+    }
 }

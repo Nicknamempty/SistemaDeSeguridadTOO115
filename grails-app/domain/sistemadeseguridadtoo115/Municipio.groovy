@@ -13,4 +13,9 @@ class Municipio {
         departamento nullable: true
 
     }
+
+    static mapping = {
+        version false
+    }
+
 }

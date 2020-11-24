@@ -8,4 +8,8 @@ class Historial_Contrasena {
     static constraints = {
 
     }
+
+    static mapping = {
+        version false
+    }
 }
