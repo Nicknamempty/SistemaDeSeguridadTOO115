@@ -9,7 +9,7 @@ class Empleado {
     String nup
     String genero
     String estadoCivil
-
+    static hasOne = [direccion: Direccion]
 
     static constraints = {
         nombre size: 3.. 100
@@ -20,5 +20,6 @@ class Empleado {
         nup size: 3.. 100
         genero size: 1.. 200
         estadoCivil size: 5.. 200
+        direccion unique: true
     }
 }
