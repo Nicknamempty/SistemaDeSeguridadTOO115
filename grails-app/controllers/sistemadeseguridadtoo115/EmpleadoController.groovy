@@ -1,5 +1,6 @@
 package sistemadeseguridadtoo115
 
+import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
@@ -9,19 +10,23 @@ class EmpleadoController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Secured('permitAll')
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond empleadoService.list(params), model:[empleadoCount: empleadoService.count()]
     }
 
+    @Secured('permitAll')
     def show(Long id) {
         respond empleadoService.get(id)
     }
 
+    @Secured('permitAll')
     def create() {
         respond new Empleado(params)
     }
 
+    @Secured('permitAll')
     def save(Empleado empleado) {
         if (empleado == null) {
             notFound()
@@ -44,10 +49,12 @@ class EmpleadoController {
         }
     }
 
+    @Secured('permitAll')
     def edit(Long id) {
         respond empleadoService.get(id)
     }
 
+    @Secured('permitAll')
     def update(Empleado empleado) {
         if (empleado == null) {
             notFound()
@@ -70,6 +77,7 @@ class EmpleadoController {
         }
     }
 
+    @Secured('permitAll')
     def delete(Long id) {
         if (id == null) {
             notFound()
